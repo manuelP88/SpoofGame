@@ -1,6 +1,7 @@
 ### Prerequisites
 
-####Install scala 
+####Install scala
+
 Install various command-line tools such as the Scala compiler and build tools ([official guide](https://docs.scala-lang.org/getting-started/index.html#install-scala))
 
 ### Run SpoofGame
