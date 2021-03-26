@@ -21,7 +21,7 @@ Install various command-line tools such as the Scala compiler and build tools ([
 
 ### Example
 
-[Game] All actors are created and connected!
+\[Game\] All actors are created and connected!
 [P1] I'm INIT, get start!
 [P1] draw coin
 [P2] draw coin
