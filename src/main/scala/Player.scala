@@ -30,11 +30,11 @@ object Player {
     Behaviors.receive((context, message) =>
       message match {
         case StartRound() if conf.init =>
-          println(s"[${conf.id}] I'm INIT, get start!")
+          println(s"[P${conf.id}] I'm INIT, get start!")
           conf.refs.coinsh ! DrawCoinsHandler.StartDrawCoins(context.self)
           Behaviors.same
         case DrawCoinsReq(replyTo) =>
-          println(s"[${conf.id}] draw coin")
+          println(s"[P${conf.id}] draw coin")
           replyTo ! DrawCoinsHandler.DrawCoinsOk()
           guessing(conf, Random.between(0, 3))
       })
@@ -45,17 +45,17 @@ object Player {
       message match {
         case DrawCoinsEnd() if conf.init =>
           val guess = Random.between(0, 3*conf.nump)
-          println(s"[${conf.id}] I'm INIT, stop draw but my guess is $guess!")
+          println(s"[P${conf.id}] I'm INIT, stop draw! My guess is $guess!")
           conf.refs.table ! GuessHandler.SendGuess(conf.id, guess, context.self)
           guessing(conf, coins)
         case PlayYourTurn() =>
           val guess = Random.between(0, 3*conf.nump)
-          println(s"[${conf.id}] I guess $guess!")
+          println(s"[P${conf.id}] I guess $guess!")
           conf.refs.table ! GuessHandler.SendGuess(conf.id, guess, context.self)
           guessing(conf, coins)
         case SendGuessResp(alreadyChoosen) if alreadyChoosen =>
           val guess = Random.between(0, 3*conf.nump)
-          println(s"[${conf.id}] I guess $guess!")
+          println(s"[P${conf.id}] I guess $guess!")
           conf.refs.table ! GuessHandler.SendGuess(conf.id, guess, context.self)
           guessing(conf, coins)
         case SendGuessResp(alreadyChoosen) if !alreadyChoosen =>
@@ -68,11 +68,11 @@ object Player {
     Behaviors.receive((context, message) =>
       message match {
         case PlayYourTurn() if conf.init =>
-          println(s"[${conf.id}] I'm INIT, Ok compute result!")
+          println(s"[P${conf.id}] I'm INIT, Ok compute result!")
           conf.refs.table ! GuessHandler.ComputeTheResult(context.self)
           waitToReveal(conf, coins)
         case GiveMeYourCoins() =>
-          println(s"[${conf.id}] Here my coins!")
+          println(s"[P${conf.id}] Here my coins!")
           conf.refs.table ! GuessHandler.HereMyCoins(coins)//fire and forget
           waitRoundResult(conf)
       })

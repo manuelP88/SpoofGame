@@ -43,7 +43,7 @@ object GuessHandler {
           val winnerId = returnTheWinner(guesses, allCoins.sum)
           val msg = if (allCoins.length== 2) Player.EndGame(winnerId) else Player.EndRound(winnerId)
           val pl = allCoins.length
-          println(s"[RES] #players=$pl winnerID=$winnerId #coins=${allCoins.sum}")
+          println(s"[GuessHandler] Result #players=$pl winnerID=$winnerId #totCoins=${allCoins.sum}")
           replyTo ! msg
           collectAllGuesses(players, Map.empty[Int, Int])
       })

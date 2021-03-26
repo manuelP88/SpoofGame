@@ -28,6 +28,7 @@ object DrawCoinsHandler {
         case DrawCoinsOk() if missing > 1 =>
           waitAllDraws(players, replyTo, totResp, missing - 1)
         case DrawCoinsOk() if missing == 1 =>
+          println("[DrawCoinsHandler] Ok! All players have drawn the coins!")
           replyTo ! Player.DrawCoinsEnd()
           idle(players, totResp-1)
       }

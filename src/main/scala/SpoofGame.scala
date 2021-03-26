@@ -78,5 +78,5 @@ object Game {
 object SpoofGame extends App {
   val system: ActorSystem[GameEvent] =
     ActorSystem(Game(), "spoofGame")
-  system ! Game.Start(3)
+  system ! Game.Start(5)
 }
