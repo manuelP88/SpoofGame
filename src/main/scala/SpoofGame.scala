@@ -57,6 +57,8 @@ object Game {
             players(i) ! Player.Connect( PRef(context.self, next, coinsh, table) )
           }
 
+          println(s"[Game] All actors are created and connected!")
+
           players(0) ! Player.StartRound()
           waitEnd()
       })
@@ -66,7 +68,7 @@ object Game {
     Behaviors.receiveMessage(message =>
       message match {
         case End(looserId) =>
-          println(s"$looserId, you have to pay!")
+          println(s"[Game] P$looserId, you have to pay!")
           println("END")
           Behaviors.stopped
       })
@@ -76,5 +78,5 @@ object Game {
 object SpoofGame extends App {
   val system: ActorSystem[GameEvent] =
     ActorSystem(Game(), "spoofGame")
-  system ! Game.Start(5)
+  system ! Game.Start(3)
 }
