@@ -19,32 +19,32 @@ Install various command-line tools such as the Scala compiler and build tools ([
 - Open the <mark>build.sbt</mark> file then choose Open as a project
 - Run <mark>SpoofGame.scala</mark>
 
-### Example
+### Example (with three players)
 
 \[Game\] All actors are created and connected!<br/>
 [P1] I'm INIT, get start!<br/>
 [P1] draw coin<br/>
 [P2] draw coin<br/>
-[P3] draw coin
-[DrawCoinsHandler] Ok! All players have drawn the coins!
-[P1] I'm INIT, stop draw! My guess is 1!
-[P2] I guess 7!
-[P3] I guess 7!
-[P3] I guess 7!
-[P3] I guess 0!
-[P1] I'm INIT, Ok compute result!
-[P1] Here my coins!
-[P2] Here my coins!
-[P3] Here my coins!
-[GuessHandler] Result #players=3 winnerID=1 #totCoins=4
-[P2] I'm INIT, get start!
-[P2] draw coin
-[P3] draw coin
-[DrawCoinsHandler] Ok! All players have drawn the coins!
-[P2] I'm INIT, stop draw! My guess is 1!
-[P3] I guess 4!
-[P2] I'm INIT, Ok compute result!
-[P2] Here my coins!
-[P3] Here my coins!
-[GuessHandler] Result #players=2 winnerID=2 #totCoins=2
-[Game] P3, you have to pay!
+[P3] draw coin<br/>
+[DrawCoinsHandler] Ok! All players have drawn the coins!<br/>
+[P1] I'm INIT, stop draw! My guess is 1!<br/>
+[P2] I guess 7!<br/>
+[P3] I guess 7!<br/>
+[P3] I guess 7!<br/>
+[P3] I guess 0!<br/>
+[P1] I'm INIT, Ok compute result!<br/>
+[P1] Here my coins!<br/>
+[P2] Here my coins!<br/>
+[P3] Here my coins!<br/>
+[GuessHandler] Result #players=3 winnerID=1 #totCoins=4<br/>
+[P2] I'm INIT, get start!<br/>
+[P2] draw coin<br/>
+[P3] draw coin<br/>
+[DrawCoinsHandler] Ok! All players have drawn the coins!<br/>
+[P2] I'm INIT, stop draw! My guess is 1!<br/>
+[P3] I guess 4!<br/>
+[P2] I'm INIT, Ok compute result!<br/>
+[P2] Here my coins!<br/>
+[P3] Here my coins!<br/>
+[GuessHandler] Result #players=2 winnerID=2 #totCoins=2<br/>
+[Game] P3, you have to pay!<br/>
